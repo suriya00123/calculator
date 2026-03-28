@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Calculator</title>
+    </head>
+
+    <style>
+        button {
+            background-color: yellow;
+            color: blue;
+        }
+        input {
+            text-align: end;
+            background-color: aqua;
+            color: red;
+            
+        }
+        body {
+            text-align: center;
+            background-color: green;
+        }
+        .box {
+             border: 0.4cm solid black;  /* frame */
+             padding: 20px;
+             width: 200px;
+             margin: auto;
+             background-color: red;
+        }
+        h1 {
+            color: white; 
+        }
+    </style>
+
+    <script>
+            function add(value) {
+                document.getElementById("display").value += value;
+            }
+
+            function clearDisplay() {
+                document.getElementById("display").value = "";
+            }
+
+            function backspace() {
+                let display = document.getElementById("display");
+                if (display.value.length > 0) {
+                    display.value = display.value.slice(0, -1);
+                }
+            }
+
+            function calculate() {
+                try {
+                    let result = eval(document.getElementById("display").value);
+                    document.getElementById("display").value = result;
+                } catch {
+                    document.getElementById("display").value = "Error";
+                }
+            }
+    </script>
+
+    <body>
+        <br>
+        <h1> javascript simple calculator</h1>
+        <br>
+        <nav class="box">
+        <br>
+
+        <input id="display" placeholder="result" readonly>
+        <div>
+            <br>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="add('%')">%</button>
+            <button onclick="backspace()">x</button>
+            <button onclick="add('/')">/</button>
+        </div>
+    
+        <br>
+    
+        <div>
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button onclick="add('*')">*</button>
+        </div>
+    
+        <br>
+    
+        <div>
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button onclick="add('-')">-</button>
+        </div>
+    
+        <br>
+    
+        <div>
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('+')">+</button>
+        </div>
+    
+        <br>
+    
+        <div>
+            <button onclick="add('00')">00</button>
+            <button onclick="add('0')">0</button>
+            <button onclick="add('.')">.</button>
+            <button onclick="calculate()">=</button>
+        </div>
+        <br>
+        </nav>
+
+    </body>
+
+</html>
