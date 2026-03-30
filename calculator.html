@@ -42,7 +42,9 @@
             }
 
             function backspace() {
+
                 let display = document.getElementById("display");
+                
                 if (display.value.length > 0) {
                     display.value = display.value.slice(0, -1);
                 }
@@ -53,7 +55,9 @@
                     let result = eval(document.getElementById("display").value);
                     document.getElementById("display").value = result;
                 } catch {
-                    document.getElementById("display").value = "Error";
+                    
+                    display.value = ""; 
+                    display.placeholder = "Error"; 
                 }
             }
     </script>
@@ -70,7 +74,7 @@
             <br>
             <button onclick="clearDisplay()">C</button>
             <button onclick="add('%')">%</button>
-            <button onclick="backspace()">x</button>
+            <button onclick="backspace()">⌫</button>
             <button onclick="add('/')">/</button>
         </div>
     
